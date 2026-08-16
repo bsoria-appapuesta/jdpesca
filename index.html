@@ -1,1 +1,165 @@
 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JD Pesca</title>
+  <style>
+    /* RESET & ESTILOS BASE */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER & NAVEGACIÓN */
+    header { position: sticky; top: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #004d40; }
+    .menu-btn { display: none; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a:hover { color: #00796b; }
+
+    /* CARRUSEL */
+    .carousel-container { position: relative; width: 100%; height: 60vh; max-height: 450px; overflow: hidden; background: #111; }
+    .carousel-slide { display: none; height: 100%; position: relative; }
+    .carousel-slide.active { display: block; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.85; }
+    .carousel-text { position: absolute; bottom: 20%; left: 10%; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.9); }
+    .carousel-text h2 { font-size: 2.2rem; }
+
+    /* SECCIONES GENERALES */
+    section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; text-align: center; }
+    section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #111; position: relative; }
+    section h2::after { content: ''; display: block; width: 50px; height: 3px; background: #00796b; margin: 0.5rem auto 0; }
+
+    /* PRODUCTOS */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .product-card { border: 1px solid #e1e1e1; border-radius: 8px; overflow: hidden; background: #fff; transition: transform 0.2s; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .product-card img { width: 100%; height: 200px; object-fit: cover; }
+    .product-card-body { padding: 1.5rem; }
+    .product-card h3 { margin-bottom: 0.5rem; color: #004d40; }
+
+    /* CONTACTO Y BOTONES */
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 1.2rem; }
+    .btn { padding: 0.8rem 1.5rem; border-radius: 5px; color: #fff; font-weight: bold; display: inline-block; }
+    .btn-wsp { background: #25D366; }
+    .btn-ig { background: #E1306C; }
+    .btn-map { background: #4285F4; }
+
+    /* FOOTER */
+    footer { background: #00251a; color: #fff; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
+
+    /* RESPONSIVE (CELULARES) */
+    @media (max-width: 768px) {
+      .menu-btn { display: block; }
+      .nav-links { display: none; position: absolute; top: 100%; right: 0; background: #fff; width: 100%; flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
+      .nav-links.show { display: flex; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">JD PESCA</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#quienes-somos" onclick="toggleMenu()">Quiénes Somos</a></li>
+      <li><a href="#productos" onclick="toggleMenu()">Productos</a></li>
+      <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
+    </ul>
+  </header>
+
+  <!-- CARRUSEL -->
+  <div class="carousel-container">
+    <div class="carousel-slide active">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80" alt="JD Pesca - Equipos">
+      <div class="carousel-text">
+        <h2>Bienvenidos a JD Pesca</h2>
+        <p>Todo lo que necesitás para tu próxima salida</p>
+      </div>
+    </div>
+    <div class="carousel-slide">
+      <img src="https://images.unsplash.com/photo-1516802273409-68526ee1bdd6?auto=format&fit=crop&w=1200&q=80" alt="JD Pesca - Promociones">
+      <div class="carousel-text">
+        <h2>Artículos y Accesorios</h2>
+        <p>La mejor calidad y asesoramiento</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes-somos">
+    <h2>Quiénes Somos</h2>
+    <p>En JD Pesca nos apasiona el mundo de la pesca deportiva y el aire libre. Te ofrecemos los mejores equipos, cañas, reeles y accesorios para que disfrutes de cada jornada.</p>
+  </section>
+
+  <!-- PRODUCTOS -->
+  <section id="productos">
+    <h2>Nuestros Productos</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=400&q=80" alt="Cañas de Pescar">
+        <div class="product-card-body">
+          <h3>Cañas de Pescar</h3>
+          <p>Variedad de modelos para agua dulce y salada.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1535591273668-578e31182c4f?auto=format&fit=crop&w=400&q=80" alt="Reeles">
+        <div class="product-card-body">
+          <h3>Reeles</h3>
+          <p>Rotativos y frontales de alta precisión y resistencia.</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=400&q=80" alt="Señuelos y Accesorios">
+        <div class="product-card-body">
+          <h3>Señuelos y Accesorios</h3>
+          <p>Líneas, anzuelos, cajas y todo tipo de caradas.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- UBICACIÓN Y CONTACTO -->
+  <section id="contacto">
+    <h2>Ubicación y Contacto</h2>
+    <p>Consultanos o hacé tu pedido directamente por nuestros canales oficiales:</p>
+    <div class="contact-links">
+      <a href="https://wa.me/" target="_blank" class="btn btn-wsp">WhatsApp</a>
+      <a href="https://instagram.com" target="_blank" class="btn btn-ig">Instagram</a>
+      <a href="https://maps.google.com" target="_blank" class="btn btn-map">Ubicación</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>📍 JD Pesca</div>
+    <div><strong>JD PESCA</strong></div>
+    <div>Atención personalizada</div>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      if (window.innerWidth <= 768) {
+        navLinks.classList.toggle('show');
+      }
+    }
+
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.carousel-slide');
+    
+    if (slides.length > 0) {
+      setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+      }, 4000);
+    }
+  </script>
+
+</body>
+</html>
