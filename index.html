@@ -3,94 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JD Pesca - Artículos de Pesca J.D.</title>
-  <!-- ÍCONOS FONT AWESOME -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>Mi Sitio Web</title>
   <style>
-    /* RESET & ESTILOS BASE */
+    /* RESET & VARS */
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: system-ui, -apple-system, sans-serif; color: #e0e0e0; background-color: #121212; line-height: 1.6; scroll-behavior: smooth; }
+    body { font-family: system-ui, -apple-system, sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
     a { text-decoration: none; color: inherit; }
 
-    /* HEADER & NAVEGACIÓN */
-    header { position: sticky; top: 0; background: #1a1a1a; border-bottom: 1px solid #333; box-shadow: 0 2px 10px rgba(0,0,0,0.5); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 2rem; }
-    .logo-container { display: flex; align-items: center; gap: 10px; }
-    .logo-img { height: 45px; width: 45px; border-radius: 50%; object-fit: cover; }
-    .logo-text { font-size: 1.4rem; font-weight: bold; color: #d4af37; letter-spacing: 1px; }
-    .menu-btn { display: none; font-size: 1.8rem; background: none; border: none; color: #fff; cursor: pointer; }
+    /* HEADER & NAV */
+    header { position: sticky; top: 0; background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+    .logo { font-size: 1.5rem; font-weight: bold; color: #222; }
+    .menu-btn { display: none; font-size: 1.8rem; background: none; border: none; cursor: pointer; }
     .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a { color: #ccc; transition: color 0.2s; }
-    .nav-links a:hover { color: #d4af37; }
+    .nav-links a:hover { color: #007bff; }
 
-    /* CARRUSEL */
-    .carousel-container { position: relative; width: 100%; height: 60vh; max-height: 450px; overflow: hidden; background: #050505; }
+    /* CARROUSEL */
+    .carousel-container { position: relative; width: 100%; height: 60vh; max-height: 450px; overflow: hidden; background: #eee; }
     .carousel-slide { display: none; height: 100%; position: relative; }
     .carousel-slide.active { display: block; }
-    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; opacity: 0.65; }
-    .carousel-text { position: absolute; bottom: 20%; left: 10%; color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,0.9); max-width: 80%; }
-    .carousel-text h2 { font-size: 2.2rem; color: #f0f0f0; }
-    .carousel-text p { color: #d4af37; font-weight: 500; font-size: 1.2rem; margin-top: 0.3rem; }
+    .carousel-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .carousel-text { position: absolute; bottom: 20%; left: 10%; color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.8); }
+    .carousel-text h2 { font-size: 2rem; }
 
     /* SECCIONES GENERALES */
     section { padding: 4rem 2rem; max-width: 1100px; margin: 0 auto; text-align: center; }
-    section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #fff; position: relative; }
-    section h2::after { content: ''; display: block; width: 60px; height: 3px; background: #d4af37; margin: 0.5rem auto 0; }
+    section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #111; position: relative; }
+    section h2::after { content: ''; display: block; width: 50px; height: 3px; background: #007bff; margin: 0.5rem auto 0; }
 
-    /* PRODUCTOS EN GRID CON FOTOS REDONDAS */
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
-    .product-card { border: 1px solid #333; border-radius: 12px; padding: 1.5rem 1rem; background: #1e1e1e; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: transform 0.2s; }
-    .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
-    
-    /* FOTO REDONDA MÁS CHICA */
-    .product-card img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid #d4af37; margin-bottom: 1rem; }
-    
-    .product-card-body { text-align: center; display: flex; flex-direction: column; gap: 0.5rem; width: 100%; flex-grow: 1; justify-content: space-between; }
-    .product-card h3 { color: #d4af37; font-size: 1.2rem; }
-    .product-card p { color: #aaa; font-size: 0.95rem; }
-    .btn-card-wsp { background: #25D366; color: #fff; padding: 0.6rem 1rem; border-radius: 6px; font-weight: bold; font-size: 0.9rem; margin-top: 0.8rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
-    .btn-card-wsp:hover { opacity: 0.9; }
+    /* PRODUCTOS */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem; }
+    .product-card { border: 1px solid #e1e1e1; border-radius: 8px; overflow: hidden; background: #fff; transition: transform 0.2s; }
+    .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+    .product-card img { width: 100%; height: 200px; object-fit: cover; }
+    .product-card-body { padding: 1.5rem; }
+    .product-card h3 { margin-bottom: 0.5rem; }
 
-    /* BANNER ANCHO COMPLETO PARA CATÁLOGO DE WHATSAPP */
-    .catalog-banner { margin-top: 3rem; background: linear-gradient(135deg, #004d40, #00251a); border: 1px solid #00796b; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
-    .catalog-banner h3 { color: #fff; font-size: 1.5rem; }
-    .catalog-banner p { color: #e0e0e0; max-width: 650px; }
-    .btn-catalog-wsp { background: #25D366; color: #fff; padding: 0.9rem 1.8rem; border-radius: 8px; font-weight: bold; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.2s; }
-    .btn-catalog-wsp:hover { transform: scale(1.03); }
-
-    /* CONTACTO Y BOTONES */
-    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 1.1rem; }
-    .btn { padding: 0.8rem 1.5rem; border-radius: 5px; color: #fff; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: opacity 0.2s; }
-    .btn i { font-size: 1.3rem; }
-    .btn:hover { opacity: 0.9; }
+    /* CONTACTO */
+    .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 1.2rem; }
+    .btn { padding: 0.8rem 1.5rem; border-radius: 5px; color: #fff; font-weight: bold; display: inline-block; }
     .btn-wsp { background: #25D366; }
     .btn-ig { background: #E1306C; }
+    .btn-map { background: #4285F4; }
 
-    .address-info { margin-top: 1.5rem; color: #ccc; font-size: 1.1rem; }
-    
-    /* MAPA INTERACTIVO PEQUEÑO */
-    .map-container { margin-top: 2rem; border-radius: 8px; overflow: hidden; border: 1px solid #333; max-width: 600px; margin-left: auto; margin-right: auto; }
-    .map-container iframe { width: 100%; height: 250px; border: 0; }
-
-    /* FOOTER ESTRUCTURA */
-    footer { background: #0a0a0a; border-top: 1px solid #222; color: #aaa; padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem; font-size: 0.95rem; }
-    .footer-left { display: flex; flex-direction: column; gap: 0.3rem; align-items: flex-start; }
-    .footer-socials { display: flex; gap: 12px; margin-top: 4px; font-size: 1.2rem; }
-    .footer-socials a { color: #ccc; transition: color 0.2s; }
-    .footer-socials a:hover { color: #d4af37; }
-    
-    .footer-center { display: flex; align-items: center; gap: 10px; text-align: center; }
-    .footer-center img { height: 35px; width: 35px; border-radius: 50%; object-fit: cover; }
-    .footer-center span { font-weight: bold; color: #fff; }
-
-    .footer-right { color: #777; font-size: 0.85rem; }
+    /* FOOTER */
+    footer { background: #111; color: #fff; padding: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
 
     /* RESPONSIVE (CELULARES) */
     @media (max-width: 768px) {
       .menu-btn { display: block; }
-      .nav-links { display: none; position: absolute; top: 100%; right: 0; background: #1a1a1a; width: 100%; flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 5px 10px rgba(0,0,0,0.5); }
+      .nav-links { display: none; position: absolute; top: 100%; right: 0; background: #fff; width: 100%; flex-direction: column; text-align: center; padding: 1rem 0; box-shadow: 0 5px 10px rgba(0,0,0,0.1); }
       .nav-links.show { display: flex; }
-      footer { flex-direction: column; text-align: center; gap: 1rem; }
-      .footer-left { align-items: center; }
     }
   </style>
 </head>
@@ -98,13 +60,10 @@
 
   <!-- HEADER -->
   <header>
-    <div class="logo-container">
-      <img src="logo.jfif" alt="JD Pesca Logo" class="logo-img">
-      <span class="logo-text">JD PESCA</span>
-    </div>
+    <div class="logo">[ TU LOGO ]</div>
     <button class="menu-btn" onclick="toggleMenu()">☰</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#nosotros" onclick="toggleMenu()">Nosotros</a></li>
+      <li><a href="#quienes-somos" onclick="toggleMenu()">Quiénes Somos</a></li>
       <li><a href="#productos" onclick="toggleMenu()">Productos</a></li>
       <li><a href="#contacto" onclick="toggleMenu()">Contacto</a></li>
     </ul>
@@ -113,225 +72,76 @@
   <!-- CARRUSEL -->
   <div class="carousel-container">
     <div class="carousel-slide active">
-      <img src="carrusel1.jpg" alt="Bienvenidos a JD Pesca">
+      <img src="https://via.placeholder.com/1200x500?text=Banner+Promocional+1" alt="Promoción 1">
       <div class="carousel-text">
-        <h2>Bienvenidos a JD Pesca</h2>
-        <p>Venta de artículos de pesca y accesorios</p>
+        <h2>Bienvenido a Nuestro Proyecto</h2>
+        <p>Tu mejor opción del mercado</p>
       </div>
     </div>
     <div class="carousel-slide">
-      <img src="carrusel2.jpg" alt="Artículos y Accesorios de Pesca">
+      <img src="https://via.placeholder.com/1200x500?text=Banner+Promocional+2" alt="Promoción 2">
       <div class="carousel-text">
-        <h2>Artículos y Accesorios</h2>
-        <p>Equipate con lo mejor para tus salidas al río y la laguna</p>
-      </div>
-    </div>
-    <div class="carousel-slide">
-      <img src="carrusel3.jpg" alt="De pescador a pescador">
-      <div class="carousel-text">
-        <h2>De pescador a pescador</h2>
-        <p>Nos mueve la misma pasión que a vos</p>
+        <h2>Ofertas Especiales</h2>
+        <p>Conocé todos nuestros productos</p>
       </div>
     </div>
   </div>
 
-  <!-- NOSOTROS -->
-  <section id="nosotros">
-    <h2>Nosotros</h2>
-    <p>JD Pesca nació de la pasión compartida de dos amigos fanáticos de la pesca deportiva. Nos unió el agua, las mañanas de espera y la emoción de cada pique. Hoy llevamos esa misma experiencia a más personas, ofreciendo equipos de calidad, herramientas confiables y la atención cercana de pescador a pescador.</p>
+  <!-- QUIÉNES SOMOS -->
+  <section id="quienes-somos">
+    <h2>Quiénes Somos</h2>
+    <p>Acá va un texto breve sobre tu proyecto, tu historia o lo que ofrecés a tus clientes. Un párrafo directo y claro.</p>
   </section>
 
-  <!-- PRODUCTOS (9 CATEGORÍAS) -->
+  <!-- PRODUCTOS -->
   <section id="productos">
     <h2>Nuestros Productos</h2>
     <div class="products-grid">
-      
-      <!-- 1. REELS -->
       <div class="product-card">
-        <img src="productos/producto1.jpg" alt="Reels" onerror="this.src='logo.jfif'">
+        <img src="https://via.placeholder.com/300x200" alt="Producto 1">
         <div class="product-card-body">
-          <div>
-            <h3>Reels</h3>
-            <p>Silver, Arena, Marine Versus y más modelos.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20los%20Reels" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
+          <h3>Producto 1</h3>
+          <p>Descripción corta de la característica o beneficio de este producto.</p>
         </div>
       </div>
-
-      <!-- 2. CAÑAS -->
       <div class="product-card">
-        <img src="productos/producto2.jpg" alt="Cañas" onerror="this.src='logo.jfif'">
+        <img src="https://via.placeholder.com/300x200" alt="Producto 2">
         <div class="product-card-body">
-          <div>
-            <h3>Cañas</h3>
-            <p>Max Costado, Max Carpa, Max Lazer y variedad de tramos.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Cañas" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
+          <h3>Producto 2</h3>
+          <p>Descripción corta de la característica o beneficio de este producto.</p>
         </div>
       </div>
-
-      <!-- 3. HARINADOS Y CARNADAS -->
       <div class="product-card">
-        <img src="productos/producto3.jpg" alt="Harinados y Carnadas" onerror="this.src='logo.jfif'">
+        <img src="https://via.placeholder.com/300x200" alt="Producto 3">
         <div class="product-card-body">
-          <div>
-            <h3>Harinados y Carnadas</h3>
-            <p>Especiales para pesca de carpa, pesca urbana y más.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Harinados%20y%20Carnadas" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
+          <h3>Producto 3</h3>
+          <p>Descripción corta de la característica o beneficio de este producto.</p>
         </div>
       </div>
-
-      <!-- 4. LÍNEAS -->
-      <div class="product-card">
-        <img src="productos/producto4.jpg" alt="Líneas" onerror="this.src='logo.jfif'">
-        <div class="product-card-body">
-          <div>
-            <h3>Líneas</h3>
-            <p>Líneas Coreanas feeder y Coreanas Cosa Nostra.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Líneas" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
-        </div>
-      </div>
-
-      <!-- 5. LÍNEAS JD -->
-      <div class="product-card">
-        <img src="productos/producto5.jpg" alt="Líneas JD" onerror="this.src='logo.jfif'">
-        <div class="product-card-body">
-          <div>
-            <h3>Líneas JD</h3>
-            <p>Modelos exclusivos Nro. 7, Nro. 1 y Nro. 9.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Líneas%20JD" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
-        </div>
-      </div>
-
-      <!-- 6. LÍNEAS DE FLOTE -->
-      <div class="product-card">
-        <img src="productos/producto6.jpg" alt="Líneas de flote" onerror="this.src='logo.jfif'">
-        <div class="product-card-body">
-          <div>
-            <h3>Líneas de Flote</h3>
-            <p>Líneas con chicote y opciones luminosas para pesca nocturna.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Líneas%20de%20Flote" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
-        </div>
-      </div>
-
-      <!-- 7. BOLSOS Y FUNDAS -->
-      <div class="product-card">
-        <img src="productos/producto7.jpg" alt="Bolsos y Fundas" onerror="this.src='logo.jfif'">
-        <div class="product-card-body">
-          <div>
-            <h3>Bolsos y Fundas</h3>
-            <p>Bolsos de pesca, porta líneas y bolsos chicos organizadores.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Bolsos%20y%20Fundas" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
-        </div>
-      </div>
-
-      <!-- 8. LINTERNAS -->
-      <div class="product-card">
-        <img src="productos/producto8.jpg" alt="Linternas" onerror="this.src='logo.jfif'">
-        <div class="product-card-body">
-          <div>
-            <h3>Linternas</h3>
-            <p>Linternas tácticas P50 y mineras para mayor comodidad.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Linternas" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
-        </div>
-      </div>
-
-      <!-- 9. GORRAS Y SOMBREROS -->
-      <div class="product-card">
-        <img src="productos/producto9.jpg" alt="Gorras y Sombreros" onerror="this.src='logo.jfif'">
-        <div class="product-card-body">
-          <div>
-            <h3>Gorras y Sombreros</h3>
-            <p>Sombreros estilo canadiense, pasa montañas y modelos camuflados.</p>
-          </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Gorras%20y%20Sombreros" target="_blank" class="btn-card-wsp">
-            <i class="fa-brands fa-whatsapp"></i> Consultar
-          </a>
-        </div>
-      </div>
-
     </div>
-
-    <!-- BANNER CATÁLOGO COMPLETO DE WHATSAPP -->
-    <div class="catalog-banner">
-      <h3>¿Buscás más artículos o stock actualizado?</h3>
-      <p>Mirá nuestro catálogo completo con precios y modelos directamente en WhatsApp.</p>
-      <a href="https://wa.me/c/5491163597131" target="_blank" class="btn-catalog-wsp">
-        <i class="fa-brands fa-whatsapp"></i> Ver Catálogo en WhatsApp
-      </a>
-    </div>
-
   </section>
 
   <!-- UBICACIÓN Y CONTACTO -->
   <section id="contacto">
     <h2>Ubicación y Contacto</h2>
-    <p>Hacé tu consulta o vení a conocer nuestros productos:</p>
-    
-    <div class="address-info">
-      📍 Monseñor Esandi 1949, Bernal Oeste, Prov. de Buenos Aires
-    </div>
-
-    <!-- BOTONES CON ÍCONOS OFICIALES -->
+    <p>Comunícate con nosotros por cualquiera de nuestros canales oficiales:</p>
     <div class="contact-links">
-      <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20hacer%20una%20consulta" target="_blank" class="btn btn-wsp">
-        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-      </a>
-      <a href="https://instagram.com/jd.pesca.78" target="_blank" class="btn btn-ig">
-        <i class="fa-brands fa-instagram"></i> Instagram
-      </a>
-    </div>
-
-    <!-- MAPA PEQUEÑO INTERACTIVO DE GOOGLE MAPS -->
-    <div class="map-container">
-      <iframe src="https://maps.google.com/maps?q=Monse%C3%B1or%20Esandi%201949,%20Bernal%20Oeste&t=&z=15&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      <a href="#" class="btn btn-wsp">WhatsApp</a>
+      <a href="#" class="btn btn-ig">Instagram</a>
+      <a href="#" class="btn btn-map">Ubicación</a>
     </div>
   </section>
 
-  <!-- FOOTER REORGANIZADO -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-left">
-      <div>📍 Bernal Oeste</div>
-      <div class="footer-socials">
-        <a href="https://instagram.com/jd.pesca.78" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://wa.me/5491163597131" target="_blank" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
-      </div>
-    </div>
-
-    <div class="footer-center">
-      <img src="logo.jfif" alt="JD Pesca Logo">
-      <span>Artículos de Pesca J.D.</span>
-    </div>
-
-    <div class="footer-right">
-      Creado por mediosweb
-    </div>
+    <div>📍 Tu Ciudad, País</div>
+    <div>[ LOGO ]</div>
+    <div>WhatsApp | Instagram</div>
   </footer>
 
-  <!-- JAVASCRIPT -->
+  <!-- JAVASCRIPT LIGERO -->
   <script>
+    // Menú hamburguesa
     function toggleMenu() {
       const navLinks = document.getElementById('navLinks');
       if (window.innerWidth <= 768) {
@@ -339,16 +149,15 @@
       }
     }
 
+    // Carrusel automático simple
     let currentSlide = 0;
     const slides = document.querySelectorAll('.carousel-slide');
     
-    if (slides.length > 0) {
-      setInterval(() => {
-        slides[currentSlide].classList.remove('active');
-        currentSlide = (currentSlide + 1) % slides.length;
-        slides[currentSlide].classList.add('active');
-      }, 4000);
-    }
+    setInterval(() => {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }, 4000);
   </script>
 
 </body>
