@@ -36,16 +36,26 @@
     section h2 { font-size: 2rem; margin-bottom: 1.5rem; color: #fff; position: relative; }
     section h2::after { content: ''; display: block; width: 60px; height: 3px; background: #d4af37; margin: 0.5rem auto 0; }
 
-    /* PRODUCTOS */
-    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 2rem; }
-    .product-card { border: 1px solid #333; border-radius: 8px; overflow: hidden; background: #1e1e1e; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.2s; }
+    /* PRODUCTOS EN GRID CON FOTOS REDONDAS */
+    .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.8rem; margin-top: 2rem; }
+    .product-card { border: 1px solid #333; border-radius: 12px; padding: 1.5rem 1rem; background: #1e1e1e; display: flex; flex-direction: column; align-items: center; justify-content: space-between; transition: transform 0.2s; }
     .product-card:hover { transform: translateY(-5px); box-shadow: 0 5px 15px rgba(212, 175, 55, 0.2); }
-    .product-card img { width: 100%; height: 220px; object-fit: cover; }
-    .product-card-body { padding: 1.2rem; text-align: center; display: flex; flex-direction: column; gap: 0.5rem; flex-grow: 1; justify-content: space-between; }
+    
+    /* FOTO REDONDA MÁS CHICA */
+    .product-card img { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; border: 3px solid #d4af37; margin-bottom: 1rem; }
+    
+    .product-card-body { text-align: center; display: flex; flex-direction: column; gap: 0.5rem; width: 100%; flex-grow: 1; justify-content: space-between; }
     .product-card h3 { color: #d4af37; font-size: 1.2rem; }
     .product-card p { color: #aaa; font-size: 0.95rem; }
-    .btn-card-wsp { background: #25D366; color: #fff; padding: 0.6rem 1rem; border-radius: 5px; font-weight: bold; font-size: 0.9rem; margin-top: 0.8rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
+    .btn-card-wsp { background: #25D366; color: #fff; padding: 0.6rem 1rem; border-radius: 6px; font-weight: bold; font-size: 0.9rem; margin-top: 0.8rem; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: opacity 0.2s; }
     .btn-card-wsp:hover { opacity: 0.9; }
+
+    /* BANNER ANCHO COMPLETO PARA CATÁLOGO DE WHATSAPP */
+    .catalog-banner { margin-top: 3rem; background: linear-gradient(135deg, #004d40, #00251a); border: 1px solid #00796b; border-radius: 12px; padding: 2rem; display: flex; flex-direction: column; align-items: center; gap: 1rem; text-align: center; }
+    .catalog-banner h3 { color: #fff; font-size: 1.5rem; }
+    .catalog-banner p { color: #e0e0e0; max-width: 650px; }
+    .btn-catalog-wsp { background: #25D366; color: #fff; padding: 0.9rem 1.8rem; border-radius: 8px; font-weight: bold; font-size: 1.1rem; display: inline-flex; align-items: center; gap: 10px; transition: transform 0.2s; }
+    .btn-catalog-wsp:hover { transform: scale(1.03); }
 
     /* CONTACTO Y BOTONES */
     .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; margin-top: 1.5rem; font-size: 1.1rem; }
@@ -131,96 +141,148 @@
     <p>JD Pesca nació de la pasión compartida de dos amigos fanáticos de la pesca deportiva. Nos unió el agua, las mañanas de espera y la emoción de cada pique. Hoy llevamos esa misma experiencia a más personas, ofreciendo equipos de calidad, herramientas confiables y la atención cercana de pescador a pescador.</p>
   </section>
 
-  <!-- PRODUCTOS (6 TARJETAS) -->
+  <!-- PRODUCTOS (9 CATEGORÍAS) -->
   <section id="productos">
     <h2>Nuestros Productos</h2>
     <div class="products-grid">
       
-      <!-- PRODUCTO 1 -->
+      <!-- 1. REELS -->
       <div class="product-card">
-        <img src="productos/producto1.jpg" alt="Cañas de Pescar" onerror="this.src='carrusel1.jpg'">
+        <img src="productos/producto1.jpg" alt="Reels" onerror="this.src='logo.jfif'">
         <div class="product-card-body">
           <div>
-            <h3>Cañas de Pescar</h3>
-            <p>Modelos variados para río, laguna y distintas modalidades.</p>
+            <h3>Reels</h3>
+            <p>Silver, Arena, Marine Versus y más modelos.</p>
           </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Cañas%20de%20Pescar" target="_blank" class="btn-card-wsp">
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20los%20Reels" target="_blank" class="btn-card-wsp">
             <i class="fa-brands fa-whatsapp"></i> Consultar
           </a>
         </div>
       </div>
 
-      <!-- PRODUCTO 2 -->
+      <!-- 2. CAÑAS -->
       <div class="product-card">
-        <img src="productos/producto2.jpg" alt="Reeles Frontales y Rotativos" onerror="this.src='carrusel2.jpg'">
+        <img src="productos/producto2.jpg" alt="Cañas" onerror="this.src='logo.jfif'">
         <div class="product-card-body">
           <div>
-            <h3>Reeles</h3>
-            <p>Frontales y rotativos con alta resistencia y excelente freno.</p>
+            <h3>Cañas</h3>
+            <p>Max Costado, Max Carpa, Max Lazer y variedad de tramos.</p>
           </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20los%20Reeles" target="_blank" class="btn-card-wsp">
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Cañas" target="_blank" class="btn-card-wsp">
             <i class="fa-brands fa-whatsapp"></i> Consultar
           </a>
         </div>
       </div>
 
-      <!-- PRODUCTO 3 -->
+      <!-- 3. HARINADOS Y CARNADAS -->
       <div class="product-card">
-        <img src="productos/producto3.jpg" alt="Señuelos y Cucharas" onerror="this.src='carrusel3.jpg'">
+        <img src="productos/producto3.jpg" alt="Harinados y Carnadas" onerror="this.src='logo.jfif'">
         <div class="product-card-body">
           <div>
-            <h3>Señuelos y Cucharas</h3>
-            <p>Modelos de superficie y profundidad para tarariras, dorados y más.</p>
+            <h3>Harinados y Carnadas</h3>
+            <p>Especiales para pesca de carpa, pesca urbana y más.</p>
           </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20los%20Señuelos" target="_blank" class="btn-card-wsp">
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Harinados%20y%20Carnadas" target="_blank" class="btn-card-wsp">
             <i class="fa-brands fa-whatsapp"></i> Consultar
           </a>
         </div>
       </div>
 
-      <!-- PRODUCTO 4 -->
+      <!-- 4. LÍNEAS -->
       <div class="product-card">
-        <img src="productos/producto4.jpg" alt="Líneas y Tanazas" onerror="this.src='carrusel1.jpg'">
+        <img src="productos/producto4.jpg" alt="Líneas" onerror="this.src='logo.jfif'">
         <div class="product-card-body">
           <div>
-            <h3>Líneas y Multifilamentos</h3>
-            <p>Nylon, multifilamento, tanazas y elementos para armar tu equipo.</p>
+            <h3>Líneas</h3>
+            <p>Líneas Coreanas feeder y Coreanas Cosa Nostra.</p>
           </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Líneas%20y%20Multifilamentos" target="_blank" class="btn-card-wsp">
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Líneas" target="_blank" class="btn-card-wsp">
             <i class="fa-brands fa-whatsapp"></i> Consultar
           </a>
         </div>
       </div>
 
-      <!-- PRODUCTO 5 -->
+      <!-- 5. LÍNEAS JD -->
       <div class="product-card">
-        <img src="productos/producto5.jpg" alt="Cajas y Organizadores" onerror="this.src='carrusel2.jpg'">
+        <img src="productos/producto5.jpg" alt="Líneas JD" onerror="this.src='logo.jfif'">
         <div class="product-card-body">
           <div>
-            <h3>Cajas y Organizadores</h3>
-            <p>Cajas de pesca reforzadas y bolsos térmicos para la jornada.</p>
+            <h3>Líneas JD</h3>
+            <p>Modelos exclusivos Nro. 7, Nro. 1 y Nro. 9.</p>
           </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Cajas%20y%20Organizadores" target="_blank" class="btn-card-wsp">
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20las%20Líneas%20JD" target="_blank" class="btn-card-wsp">
             <i class="fa-brands fa-whatsapp"></i> Consultar
           </a>
         </div>
       </div>
 
-      <!-- PRODUCTO 6 -->
+      <!-- 6. LÍNEAS DE FLOTE -->
       <div class="product-card">
-        <img src="productos/producto6.jpg" alt="Accesorios Varios" onerror="this.src='carrusel3.jpg'">
+        <img src="productos/producto6.jpg" alt="Líneas de flote" onerror="this.src='logo.jfif'">
         <div class="product-card-body">
           <div>
-            <h3>Accesorios Generales</h3>
-            <p>Anzuelos, plomadas, mosquetones, pinzas de agarre y balanzas.</p>
+            <h3>Líneas de Flote</h3>
+            <p>Líneas con chicote y opciones luminosas para pesca nocturna.</p>
           </div>
-          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Accesorios%20Generales" target="_blank" class="btn-card-wsp">
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Líneas%20de%20Flote" target="_blank" class="btn-card-wsp">
+            <i class="fa-brands fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+
+      <!-- 7. BOLSOS Y FUNDAS -->
+      <div class="product-card">
+        <img src="productos/producto7.jpg" alt="Bolsos y Fundas" onerror="this.src='logo.jfif'">
+        <div class="product-card-body">
+          <div>
+            <h3>Bolsos y Fundas</h3>
+            <p>Bolsos de pesca, porta líneas y bolsos chicos organizadores.</p>
+          </div>
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Bolsos%20y%20Fundas" target="_blank" class="btn-card-wsp">
+            <i class="fa-brands fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+
+      <!-- 8. LINTERNAS -->
+      <div class="product-card">
+        <img src="productos/producto8.jpg" alt="Linternas" onerror="this.src='logo.jfif'">
+        <div class="product-card-body">
+          <div>
+            <h3>Linternas</h3>
+            <p>Linternas tácticas P50 y mineras para mayor comodidad.</p>
+          </div>
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Linternas" target="_blank" class="btn-card-wsp">
+            <i class="fa-brands fa-whatsapp"></i> Consultar
+          </a>
+        </div>
+      </div>
+
+      <!-- 9. GORRAS Y SOMBREROS -->
+      <div class="product-card">
+        <img src="productos/producto9.jpg" alt="Gorras y Sombreros" onerror="this.src='logo.jfif'">
+        <div class="product-card-body">
+          <div>
+            <h3>Gorras y Sombreros</h3>
+            <p>Sombreros estilo canadiense, pasa montañas y modelos camuflados.</p>
+          </div>
+          <a href="https://wa.me/5491163597131?text=Hola%20JD%20Pesca!%20Quiero%20consultar%20por%20Gorras%20y%20Sombreros" target="_blank" class="btn-card-wsp">
             <i class="fa-brands fa-whatsapp"></i> Consultar
           </a>
         </div>
       </div>
 
     </div>
+
+    <!-- BANNER CATÁLOGO COMPLETO DE WHATSAPP -->
+    <div class="catalog-banner">
+      <h3>¿Buscás más artículos o stock actualizado?</h3>
+      <p>Mirá nuestro catálogo completo con precios y modelos directamente en WhatsApp.</p>
+      <a href="https://wa.me/c/5491163597131" target="_blank" class="btn-catalog-wsp">
+        <i class="fa-brands fa-whatsapp"></i> Ver Catálogo en WhatsApp
+      </a>
+    </div>
+
   </section>
 
   <!-- UBICACIÓN Y CONTACTO -->
